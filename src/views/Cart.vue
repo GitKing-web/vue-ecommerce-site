@@ -63,7 +63,7 @@ const Remove = (id) => {
         </div>
         </div>
         <div v-else>
-            <h3>No product in Cart</h3>
+            <h3 class="noProd">No product in Cart</h3>
         </div>
 
     </div>
@@ -98,6 +98,10 @@ const Remove = (id) => {
         background-color: #182848;
         color: #fff;
         padding: 1rem;
+    }
+    .noProd{
+        text-align: center;
+        margin: 1.26rem;
     }
     @media (max-width: 700px) {
         .card{

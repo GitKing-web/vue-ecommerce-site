@@ -9,25 +9,26 @@ import { useRoute } from 'vue-router';
 import store from '../vuex/store';
 
 const route = useRoute()
-const product = ref({})
+const product = ref({});
 
 
-onMounted(async() => {
+onMounted(() => {
     const productId = route.params.id
-    const data = await productDetails(productId)
-    product.value = data
+    const data = store.state.products.find((product) => product.id === parseInt(productId))
+    product.value = data;
 })
 
-async function productDetails(productId){
- const products = store.state.products
- return products.find((product) => product.id === productId || {})
+function AddToCart(id){
+    store.dispatch('addToCart', id)
 }
+
+
+
 </script>
 
 <template>
     <Header />
     <Announcement />
-        <div>
         <div class="product-info">
         <div class="img">
             <img :src="product.img" alt="">
@@ -55,12 +56,10 @@ async function productDetails(productId){
                 <option value="">XXl</option>
             </select>
         </div>
-        <Button class="btn btn-primary" title="Add to Cart"/>
+        <Button class="btn btn-primary" @click="AddToCart(id)" title="Add to Cart"/>
         </div>
         
-    </div>
-    </div>
-    
+    </div>    
     <NewsLetter />
     <Footer />
 </template>

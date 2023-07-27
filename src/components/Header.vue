@@ -17,7 +17,9 @@ import store from '../vuex/store';
         </div>
 
         <div class="center">
-            <h1 class="logo">E-Comm</h1>
+            <RouterLink to="/">
+                <h1 class="logo">E-Comm</h1>
+            </RouterLink>
         </div>
 
         <div class="right">
@@ -53,6 +55,10 @@ import store from '../vuex/store';
         justify-content: space-between;
         width: 50%;
         margin-right: 5px;
+    }
+    
+    a{
+        color: black;
     }
 
     .left{
