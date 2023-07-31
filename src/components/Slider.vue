@@ -100,4 +100,10 @@ export default{
     margin-right: -205rem;
     border: none;
 }
+
+@media (max-width: 700px){
+    .containers{
+        display: none;
+    }
+}
 </style>

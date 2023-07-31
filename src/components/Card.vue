@@ -21,20 +21,19 @@ export default{
     },
     View(productId){
         router.push(`/product/${ productId }`)
-        console.log(productId);
     }
     }
 }
 </script>
 
 <template>
-    <div class="card shadow">
+    <div class="card shadow mt-3">
         <img :src="img" alt=""/>
         <div class="p-4 d-flex justify-content-between">
             <h5>{{ item }}</h5>
             <p>${{ price }}</p>
         </div>
-        <div class="buttons d-flex justify-content-between p-3 m-2 w-100">
+        <div class="buttons d-flex justify-content-between p-3 w-100">
             <Button class="btn w-50" @click="AddToCart(id)" title="Add to cart"  />
             <RouterLink :to="{name: 'Product', params: {id}}">
                 <Button class="btn p-3 view" title="view" style="background: teal;" @click="View(id)" />
@@ -64,11 +63,12 @@ export default{
     }
     @media (max-width: 700px) {
         .card{
-            margin-top: 2rem;
+            margin-top: .6rem;
         }
         img{
             width: 100%;
-            height: 60vh;
+            height: 40vh;
+            background-size: contain;
         }
     }
 </style>

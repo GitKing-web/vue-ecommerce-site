@@ -62,4 +62,10 @@ button{
     font-weight: 600;
     cursor: pointer;
 }
+
+@media (max-width: 700px) {
+    .card{
+        height: 40vh;
+    }
+}
 </style>

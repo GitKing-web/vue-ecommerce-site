@@ -21,4 +21,14 @@ p{
     margin-top: 6px;
     font-weight: 500;
 }
+
+@media (max-width: 700px) {
+    div{
+        margin-top: 18px;
+        padding: .2rem;
+    }
+    p{
+        font-size: 13px;
+    }
+}
 </style>

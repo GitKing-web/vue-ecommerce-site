@@ -14,5 +14,11 @@ import store from '../vuex/store';
 </template>
 
 <style scoped>
+@media (max-width: 700px) {
+    .containers{
+        flex-direction: column;
+        padding: 0;
+    }
+}
 
 </style>

@@ -9,7 +9,7 @@ import store from '../vuex/store';
             <div class="lan"><h6>EN</h6></div>
             <div class="searchContainer">
 
-                <input type="text" >
+                <input type="text" placeholder="search">
                 <button class="search">
                     <i class="fas fa-search"></i>
                 </button>
@@ -17,15 +17,21 @@ import store from '../vuex/store';
         </div>
 
         <div class="center">
-            <RouterLink to="/">
+            <RouterLink to="/home">
                 <h1 class="logo">E-Comm</h1>
             </RouterLink>
         </div>
 
         <div class="right">
             <div class="nav">
-                <h4>sign up</h4>
-                <h4>sign in</h4>
+                <RouterLink :to="{ name: 'Register' }">
+                    <h4>signup</h4>
+                </RouterLink>
+
+                <RouterLink :to="{ name: 'Login' }">
+                    <h4>signin</h4>
+                </RouterLink>
+
                 <RouterLink to="/cart">
 
                     <h4>Cart({{ store.state.cart.length }})</h4>
@@ -93,5 +99,35 @@ import store from '../vuex/store';
     }
     a{
         text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        header{
+            height: 20px;
+            margin-top: 20px;
+        }
+        .lan{
+            display: none;
+        }
+        input{
+            width: 100px;
+        }
+        .logo{
+            font-size: 24px;
+        }
+        .right{
+            justify-content: center;
+            flex: 2;
+            margin-right: -1rem;
+            align-items: center;
+        }
+        .nav h4{
+            font-size: 18px;
+        }
+        .nav{
+            width: 80%;
+        }
+        .left{
+            margin-left: -2rem;
+        }
     }
 </style>

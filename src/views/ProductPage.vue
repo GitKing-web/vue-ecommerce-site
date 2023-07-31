@@ -38,7 +38,7 @@ function AddToCart(id){
             <p>
                 {{ product.desc }}
             </p>
-            <span>{{ product.price }}</span>
+            <span>${{ product.price }}</span>
 
             <div class="select d-flex justify-content-between p-3">
             <select class="form-control w-25">
@@ -56,7 +56,7 @@ function AddToCart(id){
                 <option value="">XXl</option>
             </select>
         </div>
-        <Button class="btn btn-primary" @click="AddToCart(id)" title="Add to Cart"/>
+        <Button class="btn btn-primary" @click="AddToCart(product.id)" title="Add to Cart"/>
         </div>
         
     </div>    
@@ -89,5 +89,17 @@ img{
 .btn{
     margin-top: 30px;
     padding: 10px;
+}
+
+@media (max-width: 700px) {
+    .product-info{
+        flex-direction: column;
+        padding: 12px;
+    }
+
+    img{
+        object-fit: contain;
+        height: 40vh;
+    }
 }
 </style>

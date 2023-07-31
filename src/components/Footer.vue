@@ -139,4 +139,16 @@ footer .right{
     margin-right: 20px;
     font-size: 20px;
 }
+
+@media (max-width: 700px) {
+    .center{
+        display: none;
+    }
+    footer{
+        flex-direction: column;
+    }
+    .icons{
+        width: 100%;
+    }
+}
 </style>

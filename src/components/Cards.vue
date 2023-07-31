@@ -27,7 +27,7 @@
     @media (max-width: 700px) {
         .cards{
             display: inline-block;
-            margin-top: 2rem;
+            margin-top: .5px;
         }
     }
 </style>

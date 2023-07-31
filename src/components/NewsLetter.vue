@@ -55,4 +55,23 @@
     transform: scale(1.1);
     transform: .5s ease;
 }
+
+@media (max-width: 700px) {
+    .news p{
+        text-align: center;
+        font-size: 16px;
+    }
+    .news{
+        height: 20vh;
+    }
+    .news h1{
+        font-size: 50px;
+    }
+    .input{
+        width: 80%;
+    }
+    .input button{
+        flex: 2;
+    }
+}
 </style>

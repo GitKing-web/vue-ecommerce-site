@@ -25,14 +25,19 @@ const Remove = (id) => {
     <Header />
     <Announcement />
     <div>
-        <div class="d-flex p-3 justify-content-between align-center">
-            <h3>Cart</h3>
-            <Button title="Check out" class="btn" />
+        <div class="d-flex p-3 justify-content-between align-center top">
+            <h3 class="bag">YOUR BAG</h3>
+            <div class="buttons">
+                <RouterLink :to="{ name: 'Products'}">
+                    <Button title="Continue Shopping" class="btn1" />
+                </RouterLink>
+                <Button title="Checkout Now" class="btn" />
+            </div>
         </div>
         
         <div v-if="store.state.cart.length > 0">
             <div v-for="cart in store.state.cart" :key="cart.id" class="p-4">
-            <div class="card shadow">
+            <div>
             <div class="media">
                 <img :src="cart.img" alt="">
             <div class="info">
@@ -46,18 +51,13 @@ const Remove = (id) => {
                         </div>
 
                         <div class="d-flex gap-1">
-                            <Button @click="Increment(cart.id)" class="btn" title="+" />
-                            <Button @click="Decrement(cart.id)" class="btn" title="-" />
-                            <Button @click="Remove(cart.id)" class="btn" title="X" />
+                            <Button @click="Increment(cart.id)" class="btn2" title="+" />
+                            <Button @click="Decrement(cart.id)" class="btn2" title="-" />
+                            <Button @click="Remove(cart.id)" class="btn2" title="x" />
 
                         </div>
-
-
-                <h5 class="mt-2">Description:</h5>
-                    <p>
-                        {{ cart.desc }}
-                    </p>
                 </div>
+                <hr>
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@ const Remove = (id) => {
         padding: 2rem;
     } */
     .card{
-        padding: 1rem;
+        padding: .5rem;
         height: auto;
     }
     .media{
@@ -90,14 +90,35 @@ const Remove = (id) => {
         left: 0;
         margin: auto;
     }
+    .buttons{
+        display: flex;
+        justify-content: space-between;
+        width: 20%;
+    }
     img{    
-        width: 60%;
+        width: 20%;
         object-fit: cover;
+    }
+    .top h3{
+        font-size: 40px;
+        font-weight: 200;
     }
     .btn{
         background-color: #182848;
         color: #fff;
         padding: 1rem;
+    }
+    .btn1{
+        background-color: teal;
+        border: none;
+        border-radius: 6px;
+        color: #fff;
+        padding: 1rem;
+    }
+    .btn2{
+        border: none;
+        background-color: transparent;
+        font-size: 40px;
     }
     .noProd{
         text-align: center;
@@ -116,6 +137,27 @@ const Remove = (id) => {
         }
         .media1{
             text-align: left;
+        }
+        .top h3{
+            font-size: 24px;
+        }
+        
+        .buttons{
+            width: 70%;
+        }
+        .btn1{
+            font-size: 13px;
+        }
+        .btn{
+            font-size: 13px;
+        }
+        .noProd{
+            margin-top: 12rem;
+            margin-bottom: 12rem;
+        }
+        img{
+            width: 100%;
+            object-fit: contain;
         }
     }
 </style>
