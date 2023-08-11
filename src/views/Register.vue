@@ -1,6 +1,31 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
+import { onMounted, reactive } from 'vue';
 import Button from '../components/Button.vue'
+import axios from 'axios';
+
+const regData = reactive({
+    regusername: '',
+    regemail: '',
+    regpassword: ''
+}) 
+
+async function Register(){
+    try {
+        const res = await axios.post('http://localhost:3005/user/api/register', {
+            username: regData.regusername,
+            email: regData.regemail,
+            password: regData.regpassword
+        })
+        console.log(res.data);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+onMounted(() => {
+    Register()
+})
 </script>
 
 <template>
@@ -8,16 +33,16 @@ import Button from '../components/Button.vue'
         <div class="card p-5">
         <div class="title">CREATE AN ACCOUNT</div>
         <div class="form">
-            <input type="text" name="" id="" placeholder="username">
-            <input type="email" name="" id="" placeholder="email">
-            <input type="password" name="" id="" placeholder="password">
+            <input type="text" name="" id="" placeholder="username" v-model="regData.regusername">
+            <input type="email" name="" id="" placeholder="email" v-model="regData.regemail">
+            <input type="password" name="" id="" placeholder="password" v-model="regData.regpassword">
             <input type="password" name="" id="" placeholder="confirm passsword">
             <div class="policy">
                 <p>By Creating an Account, I consent to the processing
                     of my data in accoradnce to the <b><i>PRIVACY POLICY</i></b>
                 </p>
             </div>
-            <Button title="Create" />
+            <Button title="Create" @click.prevent="Register()" />
         </div>
         <div class="alred">
             <p>Already have an account?</p>
