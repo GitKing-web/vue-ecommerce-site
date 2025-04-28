@@ -17,7 +17,7 @@ import store from '../vuex/store';
         </div>
 
         <div class="center">
-            <RouterLink to="/home">
+            <RouterLink to="/">
                 <h1 class="logo">E-Comm</h1>
             </RouterLink>
         </div>
