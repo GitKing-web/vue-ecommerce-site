@@ -67,5 +67,9 @@ button{
     .card{
         height: 40vh;
     }
+    img{
+        object-fit: cover;
+        height: 40vh;
+    }
 }
 </style>

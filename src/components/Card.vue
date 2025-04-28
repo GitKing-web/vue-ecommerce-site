@@ -68,7 +68,8 @@ export default{
         img{
             width: 100%;
             height: 40vh;
-            background-size: contain;
+            background-size: cover;
+            object-fit: cover;
         }
     }
 </style>
