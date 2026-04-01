@@ -31,7 +31,7 @@ function AddToCart(id){
 
 
 
-</script>
+</script>te a file na
 
 <template>
     <Header />
