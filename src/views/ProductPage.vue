@@ -16,6 +16,13 @@ onMounted(() => {
     const productId = route.params.id
     const data = store.state.products.find((product) => product.id === parseInt(productId))
     product.value = data;
+
+    const klaviyo = window.klaviyo || [];
+    klaviyo.track('Product Viewed', {
+        productId: data.id,
+        name: data.item,
+        price: data.price
+    });
 })
 
 function AddToCart(id){
