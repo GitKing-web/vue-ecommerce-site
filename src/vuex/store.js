@@ -135,6 +135,16 @@ const store = createStore({
                 
             }
 
+            const _learnq = window._learnq || [];
+            _learnq.push(['track', 'Added to Cart', {
+                'Product Name': product.item,
+                'Product ID': product.id,
+                'Price': product.price,
+                "Image": product.img
+            }])
+
+            console.log('klaviyo add to cart event fired for ' + product.item);
+
         },
 
         increment: ({commit, state}, payload) => {
