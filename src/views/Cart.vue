@@ -6,6 +6,7 @@ import Header from '../components/Header.vue';
 import Announcement from '../components/Announcement.vue';
 import NewsLetter from '../components/NewsLetter.vue';
 import Footer from '../components/Footer.vue'
+import { onMounted } from 'vue';
 
 function Increment(id){
     store.dispatch('increment', id)
@@ -19,6 +20,29 @@ const Remove = (id) => {
     store.dispatch('removeFromCart', id)
 }
 
+onMounted(() => {
+    const urlParams = new URLSearchParams(window.location.search)
+    const userEmail = urlParams.get('email')
+
+    if(userEmail && window.learnq){
+        window.learnq.push(['identified', { '$email' : userEmail}])
+        console.log('Klaviyo Identified :' + userEmail );
+    }
+})
+
+function handleCheckOut(){
+    // const urlParams = new URLSearchParams(window.location.search)
+    // const userEmail = urlParams.get('email')
+
+    // if(userEmail && window.learnq){
+    //     window.learnq.push(['track', 'Checkout', { '$email' : userEmail}])
+    //     console.log('Klaviyo Checkout Event Tracked for :' + userEmail );
+    // }
+
+    console.log('checkout started');
+}
+
+
 </script>
 
 <template>
@@ -31,7 +55,7 @@ const Remove = (id) => {
                 <RouterLink :to="{ name: 'Products'}">
                     <Button title="Continue Shopping" class="btn1" />
                 </RouterLink>
-                <Button title="Checkout Now" class="btn" />
+                <Button title="Checkout Now" class="btn" @click="handleCheckOut()" />
             </div>
         </div>
         
