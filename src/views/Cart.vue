@@ -24,22 +24,15 @@ onMounted(() => {
     const urlParams = new URLSearchParams(window.location.search)
     const userEmail = urlParams.get('email')
 
-    if(userEmail && window.learnq){
-        window.learnq.push(['identified', { '$email' : userEmail}])
+    if(userEmail && window._learnq){
+        window._learnq.push(['identified', { '$email' : userEmail}])
         console.log('Klaviyo Identified :' + userEmail );
     }
 })
 
 function handleCheckOut(){
-    // const urlParams = new URLSearchParams(window.location.search)
-    // const userEmail = urlParams.get('email')
-
-    // if(userEmail && window.learnq){
-    //     window.learnq.push(['track', 'Checkout', { '$email' : userEmail}])
-    //     console.log('Klaviyo Checkout Event Tracked for :' + userEmail );
-    // }
-
     console.log('checkout started');
+    store.dispatch('startCheckOut')
 }
 
 
