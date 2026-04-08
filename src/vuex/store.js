@@ -179,16 +179,17 @@ const store = createStore({
             const _learnq = window._learnq || [];
             const totalValue = state.cart.reduce((total, item) => total + (item.price * item.quantity), 0)
 
-            const urlParams = new URLSearchParams(window.location.search);
-            const userEmail = urlParams.get('utm_email');
+            // const urlParams = new URLSearchParams(window.location.search);
+            // const userEmail = urlParams.get('utm_email').value;
+            const userEmail = "ekingagada007@gmail.com"
             console.log(userEmail);
 
-            if(userEmail){
+            // if(userEmail){
                 _learnq.push(['identify', {
                     '$email': userEmail,
                     'isHighValue': totalValue >= 100
                 }])
-            }
+            // }
 
             _learnq.push(['track', 'Checkout Started', {
                 '$value': totalValue,
