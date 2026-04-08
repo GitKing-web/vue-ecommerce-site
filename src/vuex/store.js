@@ -180,9 +180,9 @@ const store = createStore({
             const totalValue = state.cart.reduce((total, item) => total + (item.price * item.quantity), 0)
 
             const urlParams = new URLSearchParams(window.location.search);
-            const userEmail = urlParams.get('email');
+            const userEmail = urlParams.get('utm_email');
             console.log(userEmail);
-return;
+
             if(userEmail){
                 _learnq.push(['identify', {
                     '$email': userEmail,
