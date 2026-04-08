@@ -181,13 +181,16 @@ const store = createStore({
 
             const urlParams = new URLSearchParams(window.location.search);
             const userEmail = urlParams.get('email');
-                if (userEmail) {
-                    _learnq.push(['identify', { '$email': userEmail, 'isHighValue': totalValue >= 100 }]);
-                }
+            if(userEmail){
+                _learnq.push(['identify', {
+                    '$email': userEmail,
+                    'isHighValue': totalValue >= 100
+                }])
+            }
 
             _learnq.push(['track', 'Checkout Started', {
                 '$value': totalValue,
-                "ItemNmaes": state.cart.map(i => i.item),
+                "ItemNames": state.cart.map(i => i.item),
                 "isHighValue": totalValue >= 100
             }]);
             console.log('klaviyo started checkout fired at state level');
