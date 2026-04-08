@@ -21,6 +21,7 @@ import cat3 from  '../assets/images/21833.jpg';
 const store = createStore({
      state:{
         cart: [],
+        userEmail: null,
         products: [
             {
                 id: 1,
@@ -180,16 +181,16 @@ const store = createStore({
             const totalValue = state.cart.reduce((total, item) => total + (item.price * item.quantity), 0)
 
             // const urlParams = new URLSearchParams(window.location.search);
-            // const userEmail = urlParams.get('utm_email').value;
-            const userEmail = "ekingagada007@gmail.com"
+            const userEmail = state.userEmail;
+            // const userEmail = "ekingagada007@gmail.com"
             console.log(userEmail);
 
-            // if(userEmail){
+            if(userEmail){
                 _learnq.push(['identify', {
                     '$email': userEmail,
                     'isHighValue': totalValue >= 100
                 }])
-            // }
+            }
 
             _learnq.push(['track', 'Checkout Started', {
                 '$value': totalValue,
@@ -236,6 +237,9 @@ const store = createStore({
 
         Remove_fromCart: (state, payload) => {
             state.cart = state.cart.filter(product => product.id !== payload)
+        },
+        set_user_email: (state, payload) => {
+            state.userEmail = payload;
         },
     }
 });

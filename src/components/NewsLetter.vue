@@ -1,12 +1,36 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+import { useStore } from 'vuex';
+
+const email = ref('');
+const store = useStore();
+const handleEmailSubmit = () => {
+    if(!email.value || !email.value.includes('@')){
+        alert('Please enter a valid email address');
+        return;
+    }
+
+    store.commit('set_user_email', email.value);
+
+    const _learnq = window._learnq || [];
+    _learnq.push(['identify', {
+        '$email': email.value,
+        '$consent': ['email']
+    }])
+
+    console.log('User Identified', email.value);
+    email.value = ''
+}
+
+</script>
 
 <template>
     <div class="news">
         <h1>NewsLetter</h1>
         <p>Get timely updates on your favourite products...</p>
         <div class="input">
-            <input type="text" placeholder="Enter your E-mail">
-            <button class="fas fa-paper-plane"></button> 
+            <input type="text" placeholder="Enter your E-mail" v-model="email">
+            <button class="fas fa-paper-plane" @click="handleEmailSubmit"></button> 
         </div>
     </div>
 </template>
