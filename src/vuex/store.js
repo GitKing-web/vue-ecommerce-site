@@ -181,6 +181,8 @@ const store = createStore({
 
             const urlParams = new URLSearchParams(window.location.search);
             const userEmail = urlParams.get('email');
+            console.log(userEmail);
+return;
             if(userEmail){
                 _learnq.push(['identify', {
                     '$email': userEmail,
